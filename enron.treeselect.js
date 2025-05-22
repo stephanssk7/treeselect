@@ -1,6 +1,7 @@
 (function ($) {
     function setChildrenChecked($checkbox, checked) {
         $checkbox.closest('li').find('input[type="checkbox"]').prop('checked', checked);
+        $checkbox.removeClass("half-check");
     }
 
     function updateParentState($checkbox) {
