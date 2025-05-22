@@ -11,6 +11,8 @@
         const $childCheckboxes = $parentLi.find('> ul input[type="checkbox"]');
         const checkedChildren = $childCheckboxes.filter(':checked');
 
+        $parentCheckbox.removeClass("half-check").toggleClass("half-check", checkedChildren.length > 0 && checkedChildren.length < $childCheckboxes.length);
+
         const allChecked = $childCheckboxes.length && checkedChildren.length === $childCheckboxes.length;
         $parentCheckbox.prop('checked', allChecked);
 
@@ -37,6 +39,7 @@
             const checkedChildren = $childCheckboxes.filter(':checked');
 
             if ($childCheckboxes.length) {
+                $checkbox.removeClass("half-check").toggleClass("half-check", checkedChildren.length > 0 && checkedChildren.length < $childCheckboxes.length);
                 $checkbox.prop('checked', checkedChildren.length === $childCheckboxes.length);
             }
         });
